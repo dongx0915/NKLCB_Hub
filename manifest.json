@@ -1,0 +1,36 @@
+{
+    "name": "Deu Baekjoon Hub",
+    "description": "백준 허브",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://www.acmicpc.net/",
+        "https://github.com/"
+    ],
+    "action": {
+        "default_title": "Baekjoon Hub",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "contentscript.js",
+                "scripts/baekjoon/upload.js",
+                "library/jquery-3.6.3.min.js"
+            ]
+        }
+    ]
+}
