@@ -41,20 +41,10 @@ function parseProblemDescription(doc = document) {
 }
 
 
-/**
-* url에 해당하는 html 문서를 가져오는 함수
-* @param url: url 주소
-* @returns html document
-*/
-async function findHtmlDocumentByUrl(url) {
-    return fetch(url, { method: 'GET' })
-        .then((html) => html.text())
-        .then((text) => {
-            const parser = new DOMParser();
-            return parser.parseFromString(text, 'text/html');
-        });
-}
 
+/**
+ * Readme를 생성하는 함수
+ */
 function makeReadme(problem_info) {
     const { 
         submitNo,            /* 제출 번호 */
@@ -75,6 +65,9 @@ function makeReadme(problem_info) {
 
     const readme = 
     `# ${problem_tier_img} [${problem_title}](https://www.acmicpc.net/problem/${problemId}) \n\n` +
+    `| 제출 번호 | 닉네임 | 채점 결과 | 메모리 | 시간 | 언어 | 코드 길이 |\n` +
+    `|---|---|---|---|---|---|---|\n` +
+    `|${submitNo}|${user}|${result.replace('Github Upload', '')}|${memory}KB|${time}ms|${lang}|${byte}B|\n\n`+
     `## 문제\n` + 
     `${problem_description}\n\n` +
     `## 입력\n` + 
@@ -94,4 +87,19 @@ function makeReadme(problem_info) {
     //         + `### 문제 설명\n\n${problem_description}\n\n`
     //         + `### 입력 \n\n ${problem_input}\n\n`
     //         + `### 출력 \n\n ${problem_output}\n\n` : '');
+}
+
+
+/**
+* url에 해당하는 html 문서를 가져오는 함수
+* @param url: url 주소
+* @returns html document
+*/
+async function findHtmlDocumentByUrl(url) {
+    return fetch(url, { method: 'GET' })
+        .then((html) => html.text())
+        .then((text) => {
+            const parser = new DOMParser();
+            return parser.parseFromString(text, 'text/html');
+        });
 }
