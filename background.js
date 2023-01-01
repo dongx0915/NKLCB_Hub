@@ -49,6 +49,7 @@ function addUploadBtnToResult(){
             
             console.log(problem_info);
 
+            makeReadme(problem_info);
             uploadToGithub(table_data);
         })
     );
