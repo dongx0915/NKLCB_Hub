@@ -7,10 +7,21 @@
         "tabs",
         "activeTab",
         "storage",
-        "scripting"
+        "scripting",
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess"
     ],
     "background": {
         "service_worker": "background.js"
+    },
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
     },
     "host_permissions": [
         "https://www.acmicpc.net/",
@@ -29,8 +40,23 @@
             "js": [
                 "contentscript.js",
                 "scripts/baekjoon/upload.js",
+                "scripts/baekjoon/parse.js",
+                "scripts/utils.js",
                 "library/jquery-3.6.3.min.js"
-            ]
+            ],
+            "run_at": "document_idle"
         }
-    ]
+    ],
+    "web_accessible_resources": [
+        {
+          "matches": [
+            "<all_urls>"
+          ],
+          "resources": [
+            "library/jquery-3.3.1.min.js",
+            "popup.html",
+            "popup.js"
+          ]
+        }
+      ]
 }

@@ -42,22 +42,13 @@ function addUploadBtnToResult(){
     var uploadbtn = document.querySelectorAll('.uploadBtn');
     uploadbtn.forEach( it =>
         it.addEventListener("click", function(){
-            var td = it.parentNode.parentNode.parentNode.querySelectorAll('td');
+            const td = it.parentNode.parentNode.parentNode.querySelectorAll('td');
+            const problemInfo = getProblemInfo(td);
 
-            var problemInfo = {
-                submitNo : td[0].textContent,
-                user : td[1].textContent,
-                problemNo : td[2].textContent,
-                result : td[3].textContent,
-                memory : td[4].textContent,
-                time : td[5].textContent,
-                lang : td[6].querySelectorAll('a')[0].textContent,
-                byte : td[7].textContent,
-                submitTime : td[8].textContent
-            };
+            const des = fetchProblemDescriptionById(problemInfo.problemNo);
+            console.log(des.problem_description);
 
             uploadToGithub(problemInfo);
-            //alert('[' + problemInfo.submitNo + '] ' + problemInfo.user + ' : ' + problemInfo.problemNo + ' ' + problemInfo.result + ' 업로드 완료');
         })
     );
 }
