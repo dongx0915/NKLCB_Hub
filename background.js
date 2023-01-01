@@ -49,7 +49,7 @@ function addUploadBtnToResult(){
             const problem_info = Object.assign({},
                 table_data,
                 await fetchProblemDescriptionById(table_data.problemNo),
-                await findProblemInfoAndSubmissionCode(table_data.submitNo)
+                await fetchSubmitCodeById(table_data.submitNo)
             );
 
             console.log(problem_info);

@@ -78,7 +78,10 @@ function makeReadme(problem_info) {
     console.log(readme);
 }
 
-async function findProblemInfoAndSubmissionCode(submissionId) {
+/*
+ * 제출 번호를 통해 소스코드를 가져오는 함수
+ */
+async function findSubmissionCode(submissionId) {
     if (!isNull(submissionId)) {
       return Promise.all([fetchSubmitCodeById(submissionId)])
         .then(([code]) => { 
