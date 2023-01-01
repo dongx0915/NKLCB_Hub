@@ -16,13 +16,13 @@ function renderURL(statusText){
 }
 
 // 화면 상의 모든 html 요소가 돔 형태로 불러졌을 때
-$(document).ready(function(){
-    $('#getUrl').click(function(){
-        getCurrentTabUrl(function(url){
-            renderURL(url);
-        });
-    });
-});
+// $(document).ready(function(){
+//     $('#getUrl').click(function(){
+//         getCurrentTabUrl(function(url){
+//             renderURL(url);
+//         });
+//     });
+// });
 
 // 화면 상의 모든 html 요소가 돔 형태로 불러졌을 때
 // document.addEventListener('DOMContentLoaded', function(){
