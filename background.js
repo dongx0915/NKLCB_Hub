@@ -14,10 +14,7 @@
  * 필요한 changeInfo: status ( unloaded / loading / complete ) 
  *      ⇒ status == complete 를 체크해주지 않을 시, 로딩 중 다양한 변화에도 Listner가 작동하여 불필요한 호출이 반복된다.
  */
-var username = 'dongdong99';
-function changeNickname(){
-    document.querySelector('.username').text = 'hi'
-}
+var username = null;
 
 /**
  * 채점 결과에 업로드 버튼 추가하는 함수
@@ -65,6 +62,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
         /* 탭 정보 변경 후, 수행할 로직 작성 */
         const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
         console.log('탭 변경 됨' + tab.url + ' ' + regex.test(tab.url));
+
         if(regex.test(tab.url)){
             chrome.scripting.executeScript({
                 target: { tabId: tabId },
