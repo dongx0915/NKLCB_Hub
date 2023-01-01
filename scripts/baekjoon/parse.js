@@ -76,17 +76,22 @@ function makeReadme(problem_info) {
     `${problem_output}\n\n`;
 
     console.log(readme);
+}
 
-    // const readme = `# [${level}] ${title} - ${problemId} \n\n`
-    //     + `[문제 링크](https://www.acmicpc.net/problem/${problemId}) \n\n`
-    //     + `### 성능 요약\n\n`
-    //     + `메모리: ${memory} KB, `
-    //     + `시간: ${runtime} ms\n\n`
-    //     + `### 분류\n\n`
-    //     + `${category || "Empty"}\n\n` + (!!problem_description ? ''
-    //         + `### 문제 설명\n\n${problem_description}\n\n`
-    //         + `### 입력 \n\n ${problem_input}\n\n`
-    //         + `### 출력 \n\n ${problem_output}\n\n` : '');
+async function findProblemInfoAndSubmissionCode(submissionId) {
+    if (!isNull(submissionId)) {
+      return Promise.all([fetchSubmitCodeById(submissionId)])
+        .then(([code]) => { 
+          return { code };
+        })
+        .catch((err) => {
+          console.log('error ocurred: ', err);
+        });
+    }
+  }
+
+function makeSourceCode(submitNo){
+
 }
 
 

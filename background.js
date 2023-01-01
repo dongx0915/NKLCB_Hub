@@ -45,8 +45,13 @@ function addUploadBtnToResult(){
             const td = it.parentNode.parentNode.parentNode.querySelectorAll('td');
             // 채점 결과 테이블의 데이터를 가져옴
             const table_data = getProblemInfo(td);
-            const problem_info = Object.assign({}, table_data, await fetchProblemDescriptionById(table_data.problemNo));
-            
+            // problem_info로 데이터 병합
+            const problem_info = Object.assign({},
+                table_data,
+                await fetchProblemDescriptionById(table_data.problemNo),
+                await findProblemInfoAndSubmissionCode(table_data.submitNo)
+            );
+
             console.log(problem_info);
 
             makeReadme(problem_info);
