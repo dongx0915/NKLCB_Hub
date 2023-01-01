@@ -41,31 +41,24 @@ function addUploadBtnToResult(){
     // a 태그에 클릭 이벤트 등록(이렇게해야 해당 a 태그에 해당하는 문제 정보를 가져올 수 있음)
     var uploadbtn = document.querySelectorAll('.uploadBtn');
     uploadbtn.forEach( it =>
-        it.addEventListener("click", function(){
+        it.addEventListener("click", async function(){
             const td = it.parentNode.parentNode.parentNode.querySelectorAll('td');
-            const problemInfo = getProblemInfo(td);
+            // 채점 결과 테이블의 데이터를 가져옴
+            const table_data = getProblemInfo(td);
+            const problem_info = Object.assign({}, table_data, await fetchProblemDescriptionById(table_data.problemNo));
+            
+            console.log(problem_info);
 
-            const des = fetchProblemDescriptionById(problemInfo.problemNo);
-            console.log(des.problem_description);
-
-            uploadToGithub(problemInfo);
+            uploadToGithub(table_data);
         })
     );
 }
-
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
     if(changeInfo.status == 'complete') {
         /* 탭 정보 변경 후, 수행할 로직 작성 */
         console.log('탭 변경 됨' + tab.url);
-        if(tab.url == 'https://www.acmicpc.net/'){
-            chrome.scripting.executeScript({
-                target: {tabId: tabId},
-                func: changeNickname
-            });
-        }
         if(tab.url == 'https://www.acmicpc.net/status?user_id=dongdong99'){
-            console.log('채점 현황 들어옴');
             chrome.scripting.executeScript({
                 target: { tabId: tabId },
                 func: addUploadBtnToResult

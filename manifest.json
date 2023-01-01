@@ -39,8 +39,10 @@
             ],
             "js": [
                 "contentscript.js",
+                "scripts/baekjoon/baekjoon.js",
                 "scripts/baekjoon/upload.js",
                 "scripts/baekjoon/parse.js",
+                "scripts/baekjoon/api.js",
                 "scripts/utils.js",
                 "library/jquery-3.6.3.min.js"
             ],
