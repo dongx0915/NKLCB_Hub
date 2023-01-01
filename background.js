@@ -63,8 +63,9 @@ function addUploadBtnToResult(){
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
     if(changeInfo.status == 'complete') {
         /* 탭 정보 변경 후, 수행할 로직 작성 */
-        console.log('탭 변경 됨' + tab.url);
-        if(tab.url == 'https://www.acmicpc.net/status?user_id=dongdong99'){
+        const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
+        console.log('탭 변경 됨' + tab.url + ' ' + regex.test(tab.url));
+        if(regex.test(tab.url)){
             chrome.scripting.executeScript({
                 target: { tabId: tabId },
                 func: addUploadBtnToResult
