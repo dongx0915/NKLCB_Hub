@@ -45,7 +45,7 @@ function parseProblemDescription(doc = document) {
 /**
  * Readme를 생성하는 함수
  */
-function makeReadme(problem_info) {
+function makeDetailMessageAndReadme(problem_info) {
     const { 
         submitNo,            /* 제출 번호 */
         user,                /* 사용자 닉네임 */
@@ -54,6 +54,7 @@ function makeReadme(problem_info) {
         time,                /* 실행 시간 */
         lang,                /* 사용 언어 */
         byte,                /* 코드 바이트 수 */
+        code,                /* 소스 코드 */
         submitTime,          /* 제출 시간 */
         problemId,           /* 문제 번호 */
         problem_description, /* 문제 설명 */
@@ -62,6 +63,10 @@ function makeReadme(problem_info) {
         problem_output,      /* 문제 출력 */
         problem_tier_img     /* 문제 티어 이미지 */
     } = problem_info;
+
+    const directory = `baekjoon/${problemId} ${problem_title}`;
+    const message = `[${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -BaekjoonHub`;
+    const fileName = `${convertSingleCharToDoubleChar(problem_title)}.${languages[lang]}`;
 
     const readme = 
     `# ${problem_tier_img} [${problem_title}](https://www.acmicpc.net/problem/${problemId}) \n\n` +
@@ -76,6 +81,14 @@ function makeReadme(problem_info) {
     `${problem_output}\n\n`;
 
     console.log(readme);
+
+    return {
+        directory,
+        fileName,
+        message,
+        readme,
+        code
+    };
 }
 
 /*
@@ -92,10 +105,6 @@ async function findSubmissionCode(submissionId) {
         });
     }
   }
-
-function makeSourceCode(submitNo){
-
-}
 
 
 /**
