@@ -40,6 +40,8 @@
             ],
             "js": [
                 "contentscript.js",
+                "scripts/authorize.js",
+                "scripts/storage.js",
                 "scripts/baekjoon/variable.js",
                 "scripts/baekjoon/baekjoon.js",
                 "scripts/baekjoon/upload.js",
