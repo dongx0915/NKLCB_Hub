@@ -14,7 +14,6 @@
  * 필요한 changeInfo: status ( unloaded / loading / complete ) 
  *      ⇒ status == complete 를 체크해주지 않을 시, 로딩 중 다양한 변화에도 Listner가 작동하여 불필요한 호출이 반복된다.
  */
-var username = null;
 
 /**
  * 채점 결과에 업로드 버튼 추가하는 함수
@@ -26,8 +25,9 @@ function addUploadBtnToResult(){
 
     for (const rows of results) {
         var td = rows.querySelectorAll('td');
+        USER_NAME = findUsername();
 
-        if(td[3].textContent == '맞았습니다!!'){
+        if(td[1].textContent == USER_NAME && td[3].textContent == '맞았습니다!!'){
             //alert(submitNo + ' : ' + user + ' ' + problemNo + ' ' + result + ' ' + memory + ' ' + time + ' ' + lang + ' ' + byte + ' ' + submitTime);
             td[3].style = "justify-content:center";
             td[3].innerHTML = td[3].innerHTML + 

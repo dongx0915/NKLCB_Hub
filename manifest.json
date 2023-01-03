@@ -40,6 +40,7 @@
             ],
             "js": [
                 "contentscript.js",
+                "scripts/baekjoon/variable.js",
                 "scripts/baekjoon/baekjoon.js",
                 "scripts/baekjoon/upload.js",
                 "scripts/baekjoon/parse.js",
