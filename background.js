@@ -15,62 +15,21 @@
  *      ⇒ status == complete 를 체크해주지 않을 시, 로딩 중 다양한 변화에도 Listner가 작동하여 불필요한 호출이 반복된다.
  */
 
-/**
- * 채점 결과에 업로드 버튼 추가하는 함수
- * 맞춘 문제에 대해서만 적용
- */
-function addUploadBtnToResult(){
-    var resultTable = document.querySelector('.table-responsive');
-    var results = resultTable.querySelectorAll('tbody > tr');
 
-    for (const rows of results) {
-        var td = rows.querySelectorAll('td');
-        USER_NAME = findUsername();
+// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
+//     if(changeInfo.status == 'complete') {
+//         /* 탭 정보 변경 후, 수행할 로직 작성 */
+//         const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
+//         console.log('탭 변경 됨' + tab.url + ' ' + regex.test(tab.url));
 
-        if(td[1].textContent == USER_NAME && td[3].textContent == '맞았습니다!!'){
-            //alert(submitNo + ' : ' + user + ' ' + problemNo + ' ' + result + ' ' + memory + ' ' + time + ' ' + lang + ' ' + byte + ' ' + submitTime);
-            td[3].style = "justify-content:center";
-            td[3].innerHTML = td[3].innerHTML + 
-            '<div style="float:right;"><a href="javascript:void(0);" class="uploadBtn">Github Upload</a></div>';
-        }
-    }
-
-    // a 태그에 클릭 이벤트 등록(이렇게해야 해당 a 태그에 해당하는 문제 정보를 가져올 수 있음)
-    var uploadbtn = document.querySelectorAll('.uploadBtn');
-    uploadbtn.forEach( it =>
-        it.addEventListener("click", async function(){
-            const td = it.parentNode.parentNode.parentNode.querySelectorAll('td');
-            // 채점 결과 테이블의 데이터를 가져옴
-            const table_data = getProblemInfo(td);
-            // problem_info로 데이터 병합
-            const problem_info = Object.assign({},
-                table_data,
-                await fetchProblemDescriptionById(table_data.problemNo),
-                await findSubmissionCode(table_data.submitNo)
-            );
-
-            console.log(problem_info);
-
-            makeReadme(problem_info);
-            uploadToGithub(table_data);
-        })
-    );
-}
-
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
-    if(changeInfo.status == 'complete') {
-        /* 탭 정보 변경 후, 수행할 로직 작성 */
-        const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
-        console.log('탭 변경 됨' + tab.url + ' ' + regex.test(tab.url));
-
-        if(regex.test(tab.url)){
-            chrome.scripting.executeScript({
-                target: { tabId: tabId },
-                func: addUploadBtnToResult
-            });
-        }
-    }
-});
+//         if(regex.test(tab.url)){
+//             chrome.scripting.executeScript({
+//                 target: { tabId: tabId },
+//                 func: addUploadBtnToResult
+//             });
+//         }
+//     }
+// });
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
     // UPDATE: re-rendering view
