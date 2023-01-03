@@ -1,4 +1,5 @@
 const currentUrl = window.location.href;
+const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
 
 function findUsername() {
     if (USER_NAME != null) return USER_NAME;
@@ -16,11 +17,15 @@ function findUsername() {
 };
 
 
-const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
+
+
+/**
+ * 현재 페이지가 채점 결과 페이지라면
+ * 업로드 버튼 추가 함수 실행
+ */
 if (regex.test(currentUrl)) {
     addUploadBtnToResult();
 }
-
 
 /**
  * 채점 결과에 업로드 버튼 추가하는 함수
@@ -55,10 +60,11 @@ function addUploadBtnToResult(){
                 await fetchProblemDescriptionById(table_data.problemNo),
                 await findSubmissionCode(table_data.submitNo)
             );
-
+            
             console.log(problem_info);
 
-            makeReadme(problem_info);
+            const bojData = makeDetailMessageAndReadme(problem_info);
+            uploadOneSolveProblemOnGit(bojData, null);
             uploadToGithub(table_data);
         })
     );

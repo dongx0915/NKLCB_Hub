@@ -35,19 +35,30 @@
     "content_scripts": [
         {
             "matches": [
-                "http://*/*",
-                "https://*/*"
+                "https://github.com/*"
+            ],
+            "js": [
+                "scripts/utils.js",
+                "scripts/Github.js",
+                "scripts/authorize.js"
+            ],
+            "run_at": "document_idle"
+        },
+        {
+            "matches": [
+                "https://www.acmicpc.net/*"
             ],
             "js": [
                 "contentscript.js",
+                "scripts/utils.js",
+                "scripts/Github.js",
                 "scripts/authorize.js",
                 "scripts/storage.js",
                 "scripts/baekjoon/variable.js",
                 "scripts/baekjoon/baekjoon.js",
-                "scripts/baekjoon/upload.js",
                 "scripts/baekjoon/parse.js",
                 "scripts/baekjoon/api.js",
-                "scripts/utils.js",
+                "scripts/baekjoon/uploadfunctions.js",
                 "library/jquery-3.6.3.min.js"
             ],
             "run_at": "document_idle"
@@ -61,7 +72,9 @@
           "resources": [
             "library/jquery-3.3.1.min.js",
             "popup.html",
-            "popup.js"
+            "popup.js",
+            "welcome.html",
+            "welcome.js"
           ]
         }
       ]
