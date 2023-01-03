@@ -34,6 +34,11 @@ $('#authenticate').on('click', () => {
 $('#welcome_URL').attr('href', `chrome-extension://${chrome.runtime.id}/welcome.html`);
 $('#hook_URL').attr('href', `chrome-extension://${chrome.runtime.id}/welcome.html`);
 
+/**
+ * 로컬 스토리지에서 BaekjoonHub_token을 가져옴
+ * 없으면 auth_mode를 통해서 github 인증 받도록,
+ * 있으면 hook 모드를 통해 github 바로 연동
+ */
 chrome.storage.local.get('BaekjoonHub_token', (data) => {
   const token = data.BaekjoonHub_token;
   alert('[ popup.js ] token = ' + token);
