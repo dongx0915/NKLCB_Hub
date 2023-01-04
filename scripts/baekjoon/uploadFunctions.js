@@ -46,8 +46,11 @@ async function upload(token, hook, sourceText, readmeText, directory, filename, 
     const treeSHA = await git.createTree(refSHA, [source, readme]);
     const commitSHA = await git.createCommit(commitMessage, treeSHA, refSHA);
 
-    await git.updateHead(ref, commitSHA);
-
+    //await git.updateHead(ref, commitSHA);
+    //const dir = await git.getRepoDirectory();
+    const dir = git.getHeadTree();
+    console.log(dir);
+    
     /* stats의 값을 갱신합니다. */
     // updateObjectDatafromPath(stats.submission, `${hook}/${source.path}`, source.sha);
     // updateObjectDatafromPath(stats.submission, `${hook}/${readme.path}`, readme.sha);
