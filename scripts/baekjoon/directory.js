@@ -10,7 +10,15 @@ function convertDirectoryToTree(tree, map){
     if (map.size == 0) return;
 
     map.forEach((value, key) => {
-        const subdir = new Tree(key, 'fa fa fa-inbox', new Array());
+        let array = new Array();
+        let icon = 'fa fa-inbox';
+        // 마지막 폴더인 경우 nodes를 null로, icon은 archive로 표시
+        // 더 이상 들어가지 못하도록
+        if(value.size == 0) {
+            array = null;
+            icon = 'fa fa-archive';
+        }
+        const subdir = new Tree(key, icon, array);
         convertDirectoryToTree(subdir, value);
         tree.nodes.push(subdir);
     })
