@@ -1,5 +1,5 @@
 var USER_NAME;
-var diretoryMap = new Map();
+var directoryMap = new Map();
 
 // prettier-ignore
 // Languages supported by BOJ

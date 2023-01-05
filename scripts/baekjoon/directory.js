@@ -1,3 +1,21 @@
+class Tree{
+    constructor(text, icon, nodes){
+        this.text = text;
+        this.icon = icon;
+        this.nodes = nodes;
+    }
+}
+
+function convertDirectoryToTree(tree, map){
+    if (map.size == 0) return;
+
+    map.forEach((value, key) => {
+        const subdir = new Tree(key, 'fa fa fa-inbox', new Array());
+        convertDirectoryToTree(subdir, value);
+        tree.nodes.push(subdir);
+    })
+}
+
 function convertDirectoryToMap(map, path) {
     if (path == 0) return;
 
@@ -29,11 +47,25 @@ async function saveRepositoryDirectory() {
     git.getTree(); 
     // 저장된 디렉토리 가져오기
     const treedata = await getTreeInLocalStorage();
-
     treedata.forEach(element => {
-        convertDirectoryToMap(diretoryMap, element.path);
+        convertDirectoryToMap(directoryMap, element.path);
     });
     
-    console.log(diretoryMap);
-    saveObjectInLocalStorage({diretoryMap: diretoryMap});
+    /**
+     * map으로 변환한 디렉토리를 다시 JSON으로 변환
+     * 해당 JSON을 Popup.js로 전송해서 폴더 선택 가능하도록 하면됨
+     * (부트스트랩 treeview 이용)
+     */
+    const array = new Array();
+    directoryMap.forEach((value, key) =>{
+        let tree = new Tree(key, 'fa fa-inbox', new Array());
+        convertDirectoryToTree(tree, value);
+        array.push(tree);
+    })
+    
+    console.log(array);
+
+    //console.log(directoryMap);
+
+    saveObjectInLocalStorage({directoryMap: JSON.stringify(directoryMap)});
 }
