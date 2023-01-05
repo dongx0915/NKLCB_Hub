@@ -178,6 +178,31 @@ async function updateHead(hook, token, ref, commitSHA, force = true) {
 }
 
 
+/** 폴더 트리를 가져오는 함수
+ * @see https://docs.github.com/en/rest/reference/git#get-a-tree
+ * @param {string} hook - the github repository
+ * @param {string} token - the github token
+ * @return {Promise} - the promise for the tree items
+ */
+async function getTree(hook, token) {
+  return fetch(`https://api.github.com/repos/${hook}/git/trees/HEAD?recursive=1}`, {
+    method: 'GET',
+    headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      const trees = new Array();
+      data.tree.forEach((tree)=>{
+        if(tree.type == 'tree'){
+          trees.push(tree);
+        }
+      });
+    
+      saveTreeInLocalStorage(trees);
+      return trees;
+    });
+}
+
 /** 리포지토리의 디렉토리들을 가져오는 메소드
  * @see https://docs.github.com/en/rest/reference/git#get-a-reference
  * @param {string} hook - github repository(리포지토리)
@@ -220,57 +245,6 @@ async function getRepoDirectory(hook, token, path, repo, branch = 'main') {
       });
     })
     .catch((error) => console.log(error));
-}
-
-/** 폴더 트리를 가져오는 함수
- * @see https://docs.github.com/en/rest/reference/git#get-a-tree
- * @param {string} hook - the github repository
- * @param {string} token - the github token
- * @return {Promise} - the promise for the tree items
- */
-async function getTree(hook, token) {
-  return fetch(`https://api.github.com/repos/${hook}/git/trees/HEAD?recursive=1}`, {
-    method: 'GET',
-    headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      return data.tree;
-    });
-}
-
-/** 폴더 트리를 가져오는 함수
- * @see https://docs.github.com/en/rest/reference/git#get-a-tree
- * @param {string} hook - the github repository
- * @param {string} token - the github token
- * @return {Promise} - the promise for the tree items
- */
-async function getHeadTree(hook, token) {
-  return fetch(`https://api.github.com/repos/${hook}/git/trees/HEAD?}`, {
-    method: 'GET',
-    headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      return data.tree;
-    });
-}
-
-/** 폴더 트리를 가져오는 함수 (하위 폴더는 가져오지 않음)
- * @see https://docs.github.com/en/rest/reference/git#get-a-tree
- * @param {string} hook - the github repository
- * @param {string} token - the github token
- * @return {Promise} - the promise for the tree items
- */
-async function getTreeNoRecursive(hook, token, treeSHA) {
-  return fetch(`https://api.github.com/repos/${hook}/git/trees/${treeSHA}`, {
-    method: 'GET',
-    headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      return data.tree;
-    });
 }
 
 class Directory {

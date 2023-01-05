@@ -55,6 +55,7 @@
                 "scripts/authorize.js",
                 "scripts/storage.js",
                 "scripts/baekjoon/variable.js",
+                "scripts/baekjoon/directory.js",
                 "scripts/baekjoon/baekjoon.js",
                 "scripts/baekjoon/parse.js",
                 "scripts/baekjoon/api.js",

@@ -1,4 +1,5 @@
 var USER_NAME;
+var diretoryMap = new Map();
 
 // prettier-ignore
 // Languages supported by BOJ
