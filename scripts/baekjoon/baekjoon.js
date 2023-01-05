@@ -16,9 +16,6 @@ function findUsername() {
     return username;
 };
 
-
-
-
 /**
  * 현재 페이지가 채점 결과 페이지라면
  * 업로드 버튼 추가 함수 실행

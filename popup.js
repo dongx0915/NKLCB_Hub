@@ -10,11 +10,11 @@
 //     });
 // }
 
-// // 화면 상의 모든 html 요소가 돔 형태로 불러졌을 때
+// 화면 상의 모든 html 요소가 돔 형태로 불러졌을 때
 // $(document).ready(function(){
-//     $('#authenticate').click(function(){
-//         getGithub();
-//     });
+//   chrome.storage.local.get('directoryMap', (dir) => {
+//       alert(dir);
+//   })
 // });
 
 
@@ -106,31 +106,21 @@ $('#onffbox').on('click', () => {
   chrome.storage.local.set({ 'bjhEnable': $('#onffbox').is(':checked') }, () => { });
 });
 
-// 화면 상의 모든 html 요소가 돔 형태로 불러졌을 때
-// document.addEventListener('DOMContentLoaded', function(){
-//     var btn = this.documentElement.querySelector('#btn');
-//     var linkbtn = this.documentElement.querySelector('#getUrl');
 
-//     btn.addEventListener("click", hi);
-//     linkbtn.addEventListener("click", function(){
-//         getCurrentTabUrl(function(url){
-//             renderURL(url);
-//         });
-//     });
-// });
 
 const optionMenu = document.querySelector(".select-menu"),
-selectBtn = optionMenu.querySelector(".select-btn"),
-options = optionMenu.querySelectorAll(".option"),
-sBtn_text = optionMenu.querySelector(".sBtn-text");
+  selectBtn = optionMenu.querySelector(".select-btn"),
+  options = optionMenu.querySelectorAll(".option"),
+  sBtn_text = optionMenu.querySelector(".sBtn-text");
 
-selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));       
+selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
 
-options.forEach(option =>{
-option.addEventListener("click", ()=>{
- let selectedOption = option.querySelector(".option-text").innerText;
- sBtn_text.innerText = selectedOption;
+options.forEach(option => {
+  option.addEventListener("click", () => {
+    let selectedOption = option.querySelector(".option-text").innerText;
+    sBtn_text.innerText = selectedOption;
 
- optionMenu.classList.remove("active");
+    optionMenu.classList.remove("active");
+  });
 });
-});
+
