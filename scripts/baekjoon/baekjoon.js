@@ -21,6 +21,7 @@ function findUsername() {
  * 업로드 버튼 추가 함수 실행
  */
 if (regex.test(currentUrl)) {
+    addModal();
     addUploadBtnToResult();
 }
 
@@ -59,10 +60,29 @@ function addUploadBtnToResult(){
             );
             
             console.log(problem_info);
-
             const bojData = makeDetailMessageAndReadme(problem_info);
-            uploadOneSolveProblemOnGit(bojData, null);
-            uploadToGithub(table_data);
+            
+            //uploadToGithub(table_data);
+
+            popOpen(bojData)
         })
     );
+}
+
+async function parseResultTable(it){
+    const td = it.parentNode.parentNode.parentNode.querySelectorAll('td');
+    // 채점 결과 테이블의 데이터를 가져옴
+    const table_data = getProblemInfo(td);
+    // problem_info로 데이터 병합
+    const problem_info = Object.assign({},
+        table_data,
+        await fetchProblemDescriptionById(table_data.problemNo),
+        await findSubmissionCode(table_data.submitNo)
+    );
+
+    console.log(problem_info);
+
+    const bojData = makeDetailMessageAndReadme(problem_info);
+    uploadOneSolveProblemOnGit(bojData, null);
+    uploadToGithub(table_data);
 }

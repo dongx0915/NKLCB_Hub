@@ -1,14 +1,3 @@
-// function getGithub() {
-//     var GitHub = require('github-api');
-//     var noAuth = new GitHub();
-
-//     var seojinseojin = noAuth.getUser('seojinseojin');
-//     seojinseojin.listStarredRepos(function (err, repos) {
-//         repos.forEach((repo) => {
-//             console.log(`" ${repo.name} " by  "${repo.owner.login}"`)
-//         })
-//     });
-// }
 
 // 화면 상의 모든 html 요소가 돔 형태로 불러졌을 때
 // $(document).ready(function(){
@@ -105,22 +94,3 @@ chrome.storage.local.get('bjhEnable', (data4) => {
 $('#onffbox').on('click', () => {
   chrome.storage.local.set({ 'bjhEnable': $('#onffbox').is(':checked') }, () => { });
 });
-
-
-
-const optionMenu = document.querySelector(".select-menu"),
-  selectBtn = optionMenu.querySelector(".select-btn"),
-  options = optionMenu.querySelectorAll(".option"),
-  sBtn_text = optionMenu.querySelector(".sBtn-text");
-
-selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
-
-options.forEach(option => {
-  option.addEventListener("click", () => {
-    let selectedOption = option.querySelector(".option-text").innerText;
-    sBtn_text.innerText = selectedOption;
-
-    optionMenu.classList.remove("active");
-  });
-});
-

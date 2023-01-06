@@ -185,7 +185,7 @@ async function updateHead(hook, token, ref, commitSHA, force = true) {
  * @return {Promise} - the promise for the tree items
  */
 async function getTree(hook, token) {
-  return fetch(`https://api.github.com/repos/${hook}/git/trees/HEAD?recursive=1}`, {
+  return fetch(`https://api.github.com/repos/${hook}/git/trees/HEAD?recursive=1`, {
     method: 'GET',
     headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' },
   })

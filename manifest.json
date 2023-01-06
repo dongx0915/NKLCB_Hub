@@ -48,19 +48,24 @@
             "matches": [
                 "https://www.acmicpc.net/*"
             ],
+            "css":[
+                "css/modal.css"
+            ],
             "js": [
-                "contentscript.js",
+                "library/jquery-3.6.3.min.js",
+                "library/bootstrap-4.4.1.js",
+                "library/bstreeview.min.js",
                 "scripts/utils.js",
                 "scripts/Github.js",
                 "scripts/authorize.js",
                 "scripts/storage.js",
                 "scripts/baekjoon/variable.js",
                 "scripts/baekjoon/directory.js",
+                "scripts/baekjoon/modal.js",
                 "scripts/baekjoon/baekjoon.js",
                 "scripts/baekjoon/parse.js",
                 "scripts/baekjoon/api.js",
-                "scripts/baekjoon/uploadfunctions.js",
-                "library/jquery-3.6.3.min.js"
+                "scripts/baekjoon/uploadfunctions.js"
             ],
             "run_at": "document_idle"
         }

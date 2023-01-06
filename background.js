@@ -19,15 +19,16 @@
 // chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
 //     if(changeInfo.status == 'complete') {
 //         /* 탭 정보 변경 후, 수행할 로직 작성 */
-//         const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
+//         // const regex = /^https:\/\/www\.acmicpc\.net\/status.{0,}/i;
 //         console.log('탭 변경 됨' + tab.url + ' ' + regex.test(tab.url));
+//         chrome.browserAction.openPopup();
 
-//         if(regex.test(tab.url)){
-//             chrome.scripting.executeScript({
-//                 target: { tabId: tabId },
-//                 func: addUploadBtnToResult
-//             });
-//         }
+//         // if(regex.test(tab.url)){
+//         //     chrome.scripting.executeScript({
+//         //         target: { tabId: tabId },
+//         //         func: addUploadBtnToResult
+//         //     });
+//         // }
 //     }
 // });
 
@@ -56,32 +57,31 @@ chrome.runtime.onInstalled.addListener((reason) => {
  */
 function handleMessage(request) {
     if (request && request.closeWebPage === true && request.isSuccess === true) {
-      /* 인증된 유저 이름을 로컬 스토리지에 저장 */
-      chrome.storage.local.set(
-        { BaekjoonHub_username: request.username }
-      );
-  
-      /* 인증에 사용된 토큰을 로컬 스토리지에 저장 */
-      chrome.storage.local.set(
-        { BaekjoonHub_token: request.token }
-      );
-  
-      /* 파이프 닫기 */
-      chrome.storage.local.set({ pipe_BaekjoonHub: false }, () => {
-        console.log('Closed pipe.');
-      });
-  
-      /* 다시 welcome.html로 돌아감 */
-      const urlOnboarding = `chrome-extension://${chrome.runtime.id}/welcome.html`;
-      chrome.tabs.create({ url: urlOnboarding, selected: true }); // creates new tab
+        /* 인증된 유저 이름을 로컬 스토리지에 저장 */
+        chrome.storage.local.set(
+            { BaekjoonHub_username: request.username }
+        );
+
+        /* 인증에 사용된 토큰을 로컬 스토리지에 저장 */
+        chrome.storage.local.set(
+            { BaekjoonHub_token: request.token }
+        );
+
+        /* 파이프 닫기 */
+        chrome.storage.local.set({ pipe_BaekjoonHub: false }, () => {
+            console.log('Closed pipe.');
+        });
+
+        /* 다시 welcome.html로 돌아감 */
+        const urlOnboarding = `chrome-extension://${chrome.runtime.id}/welcome.html`;
+        chrome.tabs.create({ url: urlOnboarding, selected: true }); // creates new tab
 
     } else if (request && request.closeWebPage === true && request.isSuccess === true) {
-      alert('Something went wrong while trying to authenticate your profile!');
-      chrome.tabs.getSelected(null, function (tab) {
-        chrome.tabs.remove(tab.id);
-      });
+        alert('Something went wrong while trying to authenticate your profile!');
+        chrome.tabs.getSelected(null, function (tab) {
+            chrome.tabs.remove(tab.id);
+        });
     }
-  }
-  
-  chrome.runtime.onMessage.addListener(handleMessage);
-  
+}
+
+chrome.runtime.onMessage.addListener(handleMessage);

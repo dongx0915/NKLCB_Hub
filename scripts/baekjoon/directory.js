@@ -39,7 +39,8 @@ function convertDirectoryToMap(map, path) {
 
 
 /**
- * 사용자가 선택한 Repository의 디렉토리 구조를 Map으로 저장하는 함수
+ * 사용자가 선택한 Repository의 디렉토리 구조를 Map으로 변환 후
+ * JSON으로 저장하는 함수
  */
 async function saveRepositoryDirectory() {
     const token = await getToken(); // 토큰 가져오기
@@ -72,8 +73,6 @@ async function saveRepositoryDirectory() {
     })
     
     console.log(array);
-
-    //console.log(directoryMap);
-
-    saveObjectInLocalStorage({directoryMap: JSON.stringify(directoryMap)});
+    // 로컬 스토리지에 Directory Json 저장
+    saveObjectInLocalStorage({directoryMap: JSON.stringify(array)});
 }
