@@ -24,14 +24,11 @@ function addModal(){
         <button class="modal-close btn btn-default btn-sm form-control" style="margin-top: 10px">닫기</button>
     </div>`;
 
-    // <button class="modal-close">닫기</button>
     let modalclose = document.querySelector('.modal-close');
     modalclose.addEventListener("click", popClose)
 }
 
 async function popOpen(bojData) {
-    console.log(bojData);
-
     let modalPop = document.querySelector('.modal-wrap');   // $('.modal-wrap');
     let modalBg = document.querySelector('.modal-bg');      // $('.modal-bg');
     
