@@ -29,6 +29,34 @@ async function fetchSolvedACById(problemId) {
         .then((res) => res.json())
 }
 
+/*
+ * 제출 번호를 통해 소스코드를 가져오는 함수
+ */
+async function findSubmissionCode(submissionId) {
+    if (!isNull(submissionId)) {
+      return Promise.all([fetchSubmitCodeById(submissionId)])
+        .then(([code]) => { 
+          return { code };
+        })
+        .catch((err) => {
+          console.log('error ocurred: ', err);
+        });
+    }
+  }
 
+
+/**
+* url에 해당하는 html 문서를 가져오는 함수
+* @param url: url 주소
+* @returns html document
+*/
+async function findHtmlDocumentByUrl(url) {
+    return fetch(url, { method: 'GET' })
+        .then((html) => html.text())
+        .then((text) => {
+            const parser = new DOMParser();
+            return parser.parseFromString(text, 'text/html');
+        });
+}
 
 

@@ -51,7 +51,7 @@ chrome.storage.local.get('BaekjoonHub_token', (data) => {
               chrome.storage.local.get(['stats', 'BaekjoonHub_hook'], (data3) => {
                 const BaekjoonHubHook = data3.BaekjoonHub_hook;
                 if (BaekjoonHubHook) {
-                  $('#repo_url').html(`Your Repo: <a target="blank" style="color: cadetblue !important;" href="https://github.com/${BaekjoonHubHook}">${BaekjoonHubHook}</a>`);
+                  $('#repo_url').html(`Your Repo: <a target="blank" style="color: #0078c3;" href="https://github.com/${BaekjoonHubHook}">${BaekjoonHubHook}</a>`);
                 }
               });
             } else {
