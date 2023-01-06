@@ -172,8 +172,15 @@ async function updateHead(hook, token, ref, commitSHA, force = true) {
         headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json', 'content-type': 'application/json' },
     })
         .then((res) => res.json())
-        .catch('업로드 중 오류가 발생하였습니다.')
+        .catch(()=>{
+            const elem = document.getElementById('BaekjoonHub_progress_elem');
+            elem.className = 'markuploadfailed';
+            alert('업로드 중 오류가 발생하였습니다.');
+        })
         .then((data) => {
+            const elem = document.getElementById('BaekjoonHub_progress_elem');
+            elem.className = 'markuploaded';
+            
             alert('업로드가 완료 되었습니다.');
             return data.sha;
         });

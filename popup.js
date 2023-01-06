@@ -15,7 +15,7 @@ let action = false;
 $('#authenticate').on('click', () => {
   if (action) {
     oAuth2.begin();
-    alert('[ popup.js ] oauth login 실행');
+    // alert('[ popup.js ] oauth login 실행');
   }
 });
 
@@ -30,7 +30,7 @@ $('#hook_URL').attr('href', `chrome-extension://${chrome.runtime.id}/welcome.htm
  */
 chrome.storage.local.get('BaekjoonHub_token', (data) => {
   const token = data.BaekjoonHub_token;
-  alert('[ popup.js ] token = ' + token);
+  // alert('[ popup.js ] token = ' + token);
 
   if (token === null || token === undefined) {
     action = true;
