@@ -179,6 +179,7 @@ const linkRepo = (token, name) => {
                             const { stats } = psolved;
                         });
                     });
+                    saveRepositoryDirectory(res.full_name, token);
                     /* Hide accordingly */
                     document.getElementById('hook_mode').style.display = 'none';
                     document.getElementById('commit_mode').style.display = 'inherit';

@@ -43,6 +43,7 @@ async function popOpen(bojData) {
 
     let selectBtn = document.querySelector('#select-directory');
     selectBtn.addEventListener("click", function(){
+        bojData.directory = document.querySelector('#select-dir').textContent + bojData.dirName;
         uploadOneSolveProblemOnGit(bojData, null);
     });
 

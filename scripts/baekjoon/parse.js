@@ -64,7 +64,8 @@ function makeDetailMessageAndReadme(problem_info) {
         problem_tier_img     /* 문제 티어 이미지 */
     } = problem_info;
 
-    const directory = `baekjoon/${problemId} ${problem_title}`;
+    const directory = `baekjoon/#${problemId} ${problem_title}`;
+    const dirName = `/#${problemId} ${problem_title}`;
     const message = `[${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -BaekjoonHub`;
     const fileName = `${convertSingleCharToDoubleChar(problem_title)}.${languages[lang]}`;
 
@@ -84,6 +85,7 @@ function makeDetailMessageAndReadme(problem_info) {
 
     return {
         directory,
+        dirName,
         fileName,
         message,
         readme,

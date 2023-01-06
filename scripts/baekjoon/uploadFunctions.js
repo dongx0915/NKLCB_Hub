@@ -46,8 +46,8 @@ async function upload(token, hook, sourceText, readmeText, directory, filename, 
     const treeSHA = await git.createTree(refSHA, [source, readme]);
     const commitSHA = await git.createCommit(commitMessage, treeSHA, refSHA);
 
-    //await git.updateHead(ref, commitSHA);
-    saveRepositoryDirectory();
+    await git.updateHead(ref, commitSHA);
+    
 
     // 콜백 함수 실행
     if (typeof cb === 'function') cb();
