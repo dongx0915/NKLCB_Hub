@@ -24,9 +24,9 @@ function parseProblemDescription(doc = document) {
     //이미지에 상대 경로가 있을 수 있으므로 이미지 경로를 절대 경로로 전환
     convertImageTagAbsoluteURL(doc.getElementById('problem_description')); 
     
-    let problem_tier_img = doc.querySelector('.page-header > blockquote');
-    problem_tier_img = problem_tier_img.innerHTML.split('&nbsp')[0].replace('<img', '<img width="20px" ');
-
+    // let problem_tier_img = doc.querySelector('.page-header > blockquote');
+    // problem_tier_img = problem_tier_img.innerHTML.split('&nbsp')[0].replace('<img', '<img width="20px" ');
+    
     const problemId = doc.getElementsByTagName('title')[0].textContent.split(':')[0].replace(/[^0-9]/, '');
     const problem_title = doc.getElementById('problem_title').innerHTML.trim();
     const problem_description = unescapeHtml(doc.getElementById('problem_description').innerHTML.trim());
@@ -35,7 +35,7 @@ function parseProblemDescription(doc = document) {
 
     if (problemId && problem_description) {
         // if (debug) console.log(`문제번호 ${problemId}의 내용을 저장합니다.`);
-        return { problemId, problem_title, problem_description, problem_input, problem_output, problem_tier_img };
+        return { problemId, problem_title, problem_description, problem_input, problem_output };
     }
     return {};
 }
@@ -55,19 +55,20 @@ function makeDetailMessageAndReadme(problem_info) {
         lang,                /* 사용 언어 */
         byte,                /* 코드 바이트 수 */
         code,                /* 소스 코드 */
+        level,               /* 문제 레벨(티어) */
         submitTime,          /* 제출 시간 */
         problemId,           /* 문제 번호 */
         problem_description, /* 문제 설명 */
         problem_title,       /* 문제 명 */
         problem_input,       /* 문제 입력 */
         problem_output,      /* 문제 출력 */
-        problem_tier_img     /* 문제 티어 이미지 */
     } = problem_info;
 
     const directory = `baekjoon/#${problemId} ${problem_title}`;
     const dirName = `/#${problemId} ${problem_title}`;
     const message = `[${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -BaekjoonHub`;
     const fileName = `${convertSingleCharToDoubleChar(problem_title)}.${languages[lang]}`;
+    const problem_tier_img = `<img width=\"20px\"  src=\"https://d2gd6pc034wcta.cloudfront.net/tier/${level}.svg\" class=\"solvedac-tier\">`;
 
     const readme = 
     `# ${problem_tier_img} [${problem_title}](https://www.acmicpc.net/problem/${problemId}) \n\n` +
