@@ -76,7 +76,7 @@ const createRepo = (token, name) => {
         name,
         private: true,
         auto_init: true,
-        description: 'This is a auto push repository for Baekjoon Online Judge created with [NKLCBHub](https://github.com/Donghyeon0915/DEU-Baekjoon-Hub).',
+        description: 'This is a auto push repository for Baekjoon Online Judge created with [NKLCBHub](https://github.com/Donghyeon0915/NKLCB_Hub).',
     };
     data = JSON.stringify(data);
 
@@ -104,19 +104,19 @@ const linkStatusCode = (status, name) => {
     switch (status) {
         case 301:
             $('#success').hide();
-            $('#error').html(`Error linking <a target="blank" href="${`https://github.com/${name}`}">${name}</a> to BaekjoonHub. <br> This repository has been moved permenantly. Try creating a new one.`);
+            $('#error').html(`Error linking <a target="blank" href="${`https://github.com/${name}`}">${name}</a> to NKLCBHub. <br> This repository has been moved permenantly. Try creating a new one.`);
             $('#error').show();
             break;
 
         case 403:
             $('#success').hide();
-            $('#error').html(`Error linking <a target="blank" href="${`https://github.com/${name}`}">${name}</a> to BaekjoonHub. <br> Forbidden action. Please make sure you have the right access to this repository.`);
+            $('#error').html(`Error linking <a target="blank" href="${`https://github.com/${name}`}">${name}</a> to NKLCBHub. <br> Forbidden action. Please make sure you have the right access to this repository.`);
             $('#error').show();
             break;
 
         case 404:
             $('#success').hide();
-            $('#error').html(`Error linking <a target="blank" href="${`https://github.com/${name}`}">${name}</a> to BaekjoonHub. <br> Resource not found. Make sure you enter the right repository name.`);
+            $('#error').html(`Error linking <a target="blank" href="${`https://github.com/${name}`}">${name}</a> to NKLCBHub. <br> Resource not found. Make sure you enter the right repository name.`);
             $('#error').show();
             break;
 
@@ -153,7 +153,7 @@ const linkRepo = (token, name) => {
                     // unable to gain access to repo in commit mode. Must switch to hook mode.
                     /* Set mode type to hook */
                     chrome.storage.local.set({ mode_type: 'hook' }, () => {
-                        console.log(`Error linking ${name} to BaekjoonHub`);
+                        console.log(`Error linking ${name} to NKLCBHub`);
                     });
                     /* Set Repo Hook to NONE */
                     chrome.storage.local.set({ BaekjoonHub_hook: null }, () => {
@@ -169,7 +169,7 @@ const linkRepo = (token, name) => {
                     /* Save repo url to chrome storage */
                     chrome.storage.local.set({ mode_type: 'commit', repo: res.html_url }, () => {
                         $('#error').hide();
-                        $('#success').html(`Successfully linked <a target="blank" style="color:#4d4d4d" href="${res.html_url}">${name}</a> to BaekjoonHub.<br>Start <a href="https://www.acmicpc.net/" style="color:#4d4d4d">BOJ</a> now!<br><br>`);
+                        $('#success').html(`Successfully linked <a target="blank" style="color:#4d4d4d" href="${res.html_url}">${name}</a> to NKLCBHub.<br>Start <a href="https://www.acmicpc.net/" style="color:#4d4d4d">BOJ</a> now!<br><br>`);
                         $('#success').show();
                         $('#unlink').show();
                     });
@@ -264,7 +264,7 @@ $('#hook_button').on('click', () => {
             if (token === null || token === undefined) {
                 // 토큰이 없으면 아직 인증되지 않은 경우
                 /* Not authorized yet. */
-                $('#error').text('Authorization error - Grant BaekjoonHub access to your GitHub account to continue (launch extension to proceed)');
+                $('#error').text('Authorization error - Grant NKLCBHub access to your GitHub account to continue (launch extension to proceed)');
                 $('#error').show();
                 $('#success').hide();
 
@@ -277,7 +277,7 @@ $('#hook_button').on('click', () => {
                     if (!username) {
                         // username이 없으면 아직 인증되지 않은 경우
                         /* Improper authorization. */
-                        $('#error').text('Improper Authorization error - Grant BaekjoonHub access to your GitHub account to continue (launch extension to proceed)');
+                        $('#error').text('Improper Authorization error - Grant NKLCBHub access to your GitHub account to continue (launch extension to proceed)');
                         $('#error').show();
                         $('#success').hide();
                     } else {
@@ -310,7 +310,7 @@ chrome.storage.local.get('mode_type', (data) => {
             const token = data2.BaekjoonHub_token;
             if (token === null || token === undefined) {
                 /* Not authorized yet. */
-                $('#error').text('Authorization error - Grant BaekjoonHub access to your GitHub account to continue (click BaekjoonHub extension on the top right to proceed)');
+                $('#error').text('Authorization error - Grant NKLCBHub access to your GitHub account to continue (click NKLCBHub extension on the top right to proceed)');
                 $('#error').show();
                 $('#success').hide();
                 /* Hide accordingly */
@@ -322,7 +322,7 @@ chrome.storage.local.get('mode_type', (data) => {
                     const hook = repoName.BaekjoonHub_hook;
                     if (!hook) {
                         /* Not authorized yet. */
-                        $('#error').text('Improper Authorization error - Grant BaekjoonHub access to your GitHub account to continue (click BaekjoonHub extension on the top right to proceed)');
+                        $('#error').text('Improper Authorization error - Grant NKLCBHub access to your GitHub account to continue (click NKLCBHub extension on the top right to proceed)');
                         $('#error').show();
                         $('#success').hide();
                         /* Hide accordingly */

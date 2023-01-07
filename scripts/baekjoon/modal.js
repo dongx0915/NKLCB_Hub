@@ -9,7 +9,7 @@ function addModal(){
     `
     <div class="modal-bg"></div>
     <div class="modal-wrap">
-        <h1 id="title">Baekjoon<span style="color: #0078c3">Hub</span></h1>
+        <h1 id="title">NKLCB<span style="color: #0078c3">/&lt;</span>Hub<span style="color: #0078c3">&gt;</span></h1>
 
         <p id="caption">업로드할 폴더를 지정해주세요<br>
             Please select a folder to upload</p>
