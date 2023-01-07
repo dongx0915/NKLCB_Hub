@@ -1,6 +1,6 @@
 {
-    "name": "Deu Baekjoon Hub",
-    "description": "백준 허브",
+    "name": "NKLCBHub",
+    "description": "네카라쿠배 허브",
     "version": "0.0.1",
     "manifest_version": 3,
     "permissions": [
