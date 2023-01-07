@@ -1,5 +1,6 @@
 body {
-    background-color: #363636 !important;
+    /* background-color: #363636 !important; */
+    background-color: white !important;
     padding: 10px;
     text-align: center;
     transition: background-color 0.75s ease;
@@ -24,29 +25,31 @@ body {
   #error {
     font-family: 'Norwester', 'Helvetica Neue', 'Lucida Grande', sans-serif;
     font-weight: normal !important;
+    font-size: 1.3em;
     color: red !important;
     margin-bottom: 0px;
   }
   
   #success {
     font-family: 'Norwester', 'Helvetica Neue', 'Lucida Grande', sans-serif;
-    font-size: 1.1em;
-    font-weight: normal !important;
-    color: green !important;
+    font-size: 1.3em;
+    font-weight: bold !important;
+    color: #0078c3 !important;
     margin-bottom: 0px;
   }
   
   #unlink {
     font-family: 'Norwester', 'Helvetica Neue', 'Lucida Grande', sans-serif;
-    font-size: 1.1em;
-    font-weight: normal !important;
-    color: green !important;
+    font-size: 1.3em;
+    font-weight: bold !important;
+    color: #0078c3 !important;
     margin-bottom: 0px;
   }
   
   p {
     color: white !important;
   }
+
   .onboarding {
     font-family: sans-serif;
     border-top: solid white 1px;
@@ -55,7 +58,18 @@ body {
   }
   
   a {
-    color: white !important;
+    color: #4d4d4d;
     cursor: pointer;
   }
-  
+
+  a:hover, a:focus { animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
+@keyframes rainbowLink {     
+ 0% { color: #ff2a2a; }
+ 15% { color: #ff7a2a; }
+ 30% { color: #ffc52a; }
+ 45% { color: #43ff2a; }
+ 60% { color: #2a89ff; }
+ 75% { color: #202082; }
+ 90% { color: #6b2aff; } 
+ 100% { color: #e82aff; }
+}

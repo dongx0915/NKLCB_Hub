@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="css/welcome.css" />
     <script src="/library/jquery-3.6.3.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" />
     <script src="/library/semantic.min.js"></script>
   </head>
@@ -12,23 +13,23 @@
     <div class="ui grid container">
       <div class="sixteen wide center aligned column">
         <br />
-        <p class="caption" style="font-size: 9em">Bae<span style="color: #0078c3">/&lt</span>joonHub<span style="color: #0078c3">></span></p>
-        <p class="caption">Automatically sync your code from Baekjoon to GitHub</p>
+        <p class="caption" style="font-size: 9em; color: #4d4d4d !important">Bae<span style="color: #0078c3">/&lt</span>joonHub<span style="color: #0078c3">></span></p>
+        <p class="caption" style="color :#646464 !important">Automatically sync your code from Baekjoon to GitHub</p>
         <br /><br /><br /><br /><br /><br /><br /><br />
         <p hidden id="error"></p>
         <p hidden id="success"></p>
-        <p hidden id="unlink">Linked the wrong repo? <a>Unlink</a>.</p>
+        <p hidden id="unlink">Linked the wrong repo? <a style="color:#4d4d4d">Unlink</a>.</p>
       </div>
 
       <!-- Create Hook -->
       <div style="display: none" id="hook_mode" class="ui grid container">
         <div class="six wide column">
-          <p class="caption ui large header center aligned">To get started with BaekjoonHub</p>
+          <p class="caption ui large header center aligned" style="color : #4d4d4d !important">To get started with BaekjoonHub</p>
         </div>
         <div class="four wide left aligned column">
           <div class="ui form">
             <div class="field">
-              <select id="type">
+              <select id="type" class="form-control margin-left-3">
                 <option value="">Pick an Option</option>
                 <option value="new">Create a new Private Repository</option>
                 <option value="link">Link an Existing Repository</option>
@@ -46,7 +47,7 @@
 
         <div class="sixteen wide right aligned column">
           <br />
-          <button id="hook_button" disabled class="positive ui button">Get Started</button>
+          <button id="hook_button" disabled class="primary ui button">Get Started</button>
         </div>
       </div>
 
@@ -54,7 +55,7 @@
       <div style="display: none" id="commit_mode" class="ui grid container">
         <div class="wide center aligned column">
           <br /><br /><br />
-          <div class="ui inverted large header">Want more features? <br /><a style="color: rgb(72, 145, 255) !important; font-size: 0.8em" target="_blank" href="https://github.com/Donghyeon0915/DEU-Baekjoon-Hub/issues">Request a feature!</a></div>
+          <div class="ui inverted large header">Want more features? <br /><a style="color: #0078c3 !important; font-size: 0.8em" target="_blank" href="https://github.com/Donghyeon0915/DEU-Baekjoon-Hub/issues">Request a feature!</a></div>
         </div>
       </div>
 
@@ -62,7 +63,7 @@
       <div class="sixteen wide center aligned column">
         <br /><br /><br /><br /><br />
         <div class="ui inverted small header">
-          <a style="color: rgb(226, 243, 243) !important" target="_blank" href="https://github.com/Donghyeon0915/DEU-Baekjoon-Hub">Star <span style="color: white">Baekjoon</span><span style="color: #0078c3 !important">Hub</span> on GitHub</a>
+          <a style="color: #4d4d4d !important" target="_blank" href="https://github.com/Donghyeon0915/DEU-Baekjoon-Hub">Star <span style="color: #4d4d4d">Baekjoon</span><span style="color: #0078c3 !important">Hub</span> on GitHub</a>
         </div>
       </div>
     </div>

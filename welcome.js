@@ -169,7 +169,7 @@ const linkRepo = (token, name) => {
                     /* Save repo url to chrome storage */
                     chrome.storage.local.set({ mode_type: 'commit', repo: res.html_url }, () => {
                         $('#error').hide();
-                        $('#success').html(`Successfully linked <a target="blank" href="${res.html_url}">${name}</a> to BaekjoonHub. Start <a href="https://www.acmicpc.net/">BOJ</a> now!`);
+                        $('#success').html(`Successfully linked <a target="blank" style="color:#4d4d4d" href="${res.html_url}">${name}</a> to BaekjoonHub.<br>Start <a href="https://www.acmicpc.net/" style="color:#4d4d4d">BOJ</a> now!<br><br>`);
                         $('#success').show();
                         $('#unlink').show();
                     });
