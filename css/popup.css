@@ -140,7 +140,7 @@ body {
   color: #333;
 }
 
-a:hover, a:focus { animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
+a:hover, a:focus { animation-duration: 1.5s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
 @keyframes rainbowLink {     
  0% { color: #ff2a2a; }
  15% { color: #ff7a2a; }
