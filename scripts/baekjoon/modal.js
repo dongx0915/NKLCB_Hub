@@ -57,8 +57,13 @@ async function popOpen(bojData) {
         // 로딩 CSS 표시
         const elem = document.getElementById('BaekjoonHub_progress_elem');
         elem.className = 'BaekjoonHub_progress';
+        
+        let selectDir = document.querySelector('#select-dir').textContent;
+        if(selectDir == '') bojData.directory = bojData.dirName;
+        else bojData.directory = selectDir + '/' + bojData.dirName;
 
-        bojData.directory = document.querySelector('#select-dir').textContent + bojData.dirName;
+
+        //bojData.directory = document.querySelector('#select-dir').textContent + '/' + bojData.dirName;
         uploadOneSolveProblemOnGit(bojData, null);
     });
 
