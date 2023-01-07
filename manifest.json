@@ -12,6 +12,13 @@
         "declarativeNetRequest",
         "declarativeNetRequestWithHostAccess"
     ],
+    "icons": {
+        "16": "thumbnail.png",
+        "32": "thumbnail.png",
+        "48": "thumbnail.png",
+        "64": "thumbnail.png",
+        "128": "thumbnail.png"
+    },
     "background": {
         "service_worker": "background.js"
     },
