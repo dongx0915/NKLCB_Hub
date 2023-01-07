@@ -37,7 +37,16 @@ async function popOpen(bojData) {
 
     let modalPop = document.querySelector('.modal-wrap');   // $('.modal-wrap');
     let modalBg = document.querySelector('.modal-bg');      // $('.modal-bg');
-    let json = JSON.parse(await getObjectFromLocalStorage('directoryMap'));
+    let json = await getObjectFromLocalStorage('directoryMap');
+    
+    if(isNull(json)){
+        alert('로딩된 디렉토리가 없습니다.\n\nRepository 연결 상태를 확인해주세요.');
+        return;
+    }
+
+    json = JSON.parse(json);
+
+
     $('#tree').bstreeview({ data: JSON.stringify(json)});
 
     modalBg.style = "display: block";
