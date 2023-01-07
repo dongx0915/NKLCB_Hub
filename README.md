@@ -1,5 +1,11 @@
 # DEU-Baekjoon-Hub
 
+해당 프로젝트는 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)를 참조하여 제작 되었습니다.
+
+기존의 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)는 업로드할 디렉토리가 자동으로 지정되어 사용자가 임의로 선택할 수 없었습니다.
+
+***DEU-Baekjoon-Hub***는 사용자가 직접 원하는 디렉토리를 지정하여 업로드할 수 있도록 기능을 변경하였습니다.
+
 # Usage
 
 해당 프로젝트는 확장앱 스토어에 업로드 되어있지 않습니다. (추후 업로드 예정)
