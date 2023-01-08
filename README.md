@@ -32,7 +32,7 @@
 
 <br>
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/clickpopup.png" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/auth.png" width="100%"/> &nbsp;&nbsp;
 
 > **4. Authenticate 클릭**
 
@@ -40,7 +40,7 @@ Authenticate를 클릭하여 Github와 연동한 후 백준 문제를 업로드�
 
 ***Link an Existing Repository***를 선택한 후 Repository 이름을 입력합니다.
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linkrepo.JPG" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linkrepo.png" width="100%"/> &nbsp;&nbsp;
 
 > **5. [Baekjoon](www.acmicpc.net)으로 이동 후 새로고침**
 
@@ -48,7 +48,7 @@ Authenticate를 클릭하여 Github와 연동한 후 백준 문제를 업로드�
 
 Baekjoon 사이트로 이동하여 새로고침을 한 번 눌러주면 Repository의 디렉토리가 적용 됩니다. (Repository의 크기에 따라 시간이 걸릴 수도 있습니다.)
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/succeslink.JPG" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linked.png" width="100%"/> &nbsp;&nbsp;
 
 
 > **6. 업로드할 폴더 지정**
