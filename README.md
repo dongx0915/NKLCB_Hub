@@ -1,5 +1,10 @@
 # NKLCB Hub
 
+
+![Release Version](https://img.shields.io/badge/release-0.0.1-yellow?style=flat-square)
+![Platform](https://img.shields.io/badge/platform-Chrome%20Extension-blue?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/Donghyeon0915/NKLCB_Hub?style=flat-square)
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/logo (2).png" width="40%"/> &nbsp;&nbsp;
 </p>
