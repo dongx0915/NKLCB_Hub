@@ -41,7 +41,7 @@ function addUploadBtnToResult(){
             //alert(submitNo + ' : ' + user + ' ' + problemNo + ' ' + result + ' ' + memory + ' ' + time + ' ' + lang + ' ' + byte + ' ' + submitTime);
             td[3].style = "justify-content:center";
             td[3].innerHTML = td[3].innerHTML + 
-            '<div style="float:right;"><a href="javascript:void(0);" class="uploadBtn">Github Upload</a></div>';
+            '<div style="float:right;"><a href="javascript:void(0);" class="uploadBtn fa fa-github"> Upload</a></div>';
         }
     }
 
