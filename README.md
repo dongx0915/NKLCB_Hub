@@ -58,6 +58,6 @@ Repository를 연동하고 채점 현황 페이지에 접속하게 되면 자신
 해당 버튼을 클릭하면 업로드할 폴더를 지정하는 모달이 뜨게 되며, 해당 모달 창에서 원하는 폴더를 선택한 후 선택 버튼을 누르시면 업로드가 완료 됩니다.
 
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/githubupload.JPG" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/status.png" width="100%"/> &nbsp;&nbsp;
 
 <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/selectdir.png" width="100%"/> &nbsp;&nbsp;
