@@ -66,7 +66,7 @@ function makeDetailMessageAndReadme(problem_info) {
 
     const directory = `baekjoon/#${problemId} ${problem_title}`;
     const dirName = `#${problemId} ${problem_title}`;
-    const message = `[${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -BaekjoonHub`;
+    const message = `[${bj_level[level]} ${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -NKLCBHub`;
     const fileName = `${convertSingleCharToDoubleChar(problem_title)}.${languages[lang]}`;
     const problem_tier_img = `<img width=\"20px\"  src=\"https://d2gd6pc034wcta.cloudfront.net/tier/${level}.svg\" class=\"solvedac-tier\">`;
 
