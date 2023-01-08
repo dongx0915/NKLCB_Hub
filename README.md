@@ -1,10 +1,18 @@
 # NKLCB Hub
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/logo (2).png" width="40%"/> &nbsp;&nbsp;
+</p>
+
+<center>
+  
 해당 프로젝트는 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)를 참조하여 제작 되었습니다.
 
 기존의 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)는 업로드할 디렉토리가 자동으로 지정되어 사용자가 임의로 선택할 수 없었습니다.
 
 ***NKLCB Hub***는 사용자가 직접 원하는 디렉토리를 지정하여 업로드할 수 있도록 기능을 변경하였습니다.
+  
+</center>  
 
 # Usage
 
