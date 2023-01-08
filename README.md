@@ -1,10 +1,18 @@
 # NKLCB Hub
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/logo (2).png" width="40%"/> &nbsp;&nbsp;
+</p>
+
+<center>
+  
 해당 프로젝트는 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)를 참조하여 제작 되었습니다.
 
 기존의 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)는 업로드할 디렉토리가 자동으로 지정되어 사용자가 임의로 선택할 수 없었습니다.
 
 ***NKLCB Hub***는 사용자가 직접 원하는 디렉토리를 지정하여 업로드할 수 있도록 기능을 변경하였습니다.
+  
+</center>  
 
 # Usage
 
@@ -32,7 +40,7 @@
 
 <br>
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/clickpopup.png" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/auth.png" width="100%"/> &nbsp;&nbsp;
 
 > **4. Authenticate 클릭**
 
@@ -40,7 +48,7 @@ Authenticate를 클릭하여 Github와 연동한 후 백준 문제를 업로드�
 
 ***Link an Existing Repository***를 선택한 후 Repository 이름을 입력합니다.
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linkrepo.JPG" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linkrepo.png" width="100%"/> &nbsp;&nbsp;
 
 > **5. [Baekjoon](www.acmicpc.net)으로 이동 후 새로고침**
 
@@ -48,7 +56,7 @@ Authenticate를 클릭하여 Github와 연동한 후 백준 문제를 업로드�
 
 Baekjoon 사이트로 이동하여 새로고침을 한 번 눌러주면 Repository의 디렉토리가 적용 됩니다. (Repository의 크기에 따라 시간이 걸릴 수도 있습니다.)
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/succeslink.JPG" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linked.png" width="100%"/> &nbsp;&nbsp;
 
 
 > **6. 업로드할 폴더 지정**
@@ -58,6 +66,6 @@ Repository를 연동하고 채점 현황 페이지에 접속하게 되면 자신
 해당 버튼을 클릭하면 업로드할 폴더를 지정하는 모달이 뜨게 되며, 해당 모달 창에서 원하는 폴더를 선택한 후 선택 버튼을 누르시면 업로드가 완료 됩니다.
 
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/githubupload.JPG" width="100%"/> &nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/status.png" width="100%"/> &nbsp;&nbsp;
 
 <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/selectdir.png" width="100%"/> &nbsp;&nbsp;
