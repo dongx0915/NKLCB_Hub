@@ -9,45 +9,52 @@
   <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/logo (2).png" width="40%"/> &nbsp;&nbsp;
 </p>
 
-<center>
+# **네카라쿠배 허브란? (What is NKLCBHub?)**
+
+<p>
+
+  ***네카라쿠배 허브***는 BOJ의 개인 풀이를 Github에 자동 푸시해주는 <a href="https://github.com/BaekjoonHub/BaekjoonHub/">BaekjoonHub</a>를 커스텀하여 만든 프로젝트입니다.
   
-해당 프로젝트는 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)를 참조하여 제작 되었습니다.
+  자동으로 소스 코드가 업로드되는 것과 경로를 지정할 수 없는 점에 아쉬워하시는 분이 많아 해당 익스텐션을 개발하게 되었습니다.
 
-기존의 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)는 업로드할 디렉토리가 자동으로 지정되어 사용자가 임의로 선택할 수 없었습니다.
-
-***NKLCB Hub***는 사용자가 직접 원하는 디렉토리를 지정하여 업로드할 수 있도록 기능을 변경하였습니다.
+  <a href="https://www.acmicpc.net/">백준</a>을 통해 알고리즘 공부를 하시는 분들이 더욱 쉽게 코드를 저장하고 관리할 수 있게 하도록 만들었으며, 원하는 폴더를 선택하여 문제와 소스 코드를 업로드할 수 있습니다.
   
-</center>  
+  <br/>
 
-# Usage
+</p>
 
-해당 프로젝트는 확장앱 스토어에 업로드 되어있지 않습니다. (추후 업로드 예정)
+<p>
+  NKLCBHub is a chrome extension that automatically pushes your code to GitHub when you pass all tests on a <a href="https://www.acmicpc.net/">Baekjoon Online Judge</a> problem. This project was based off of <a href="https://github.com/BaekjoonHub/BaekjoonHub/">BaekjoonHub</a>, a similar extension for BaekjoonHub.
+</p>
 
-프로젝트를 Clone 받은 후 압축을 해제하여 확장앱 관리자에서 직접 등록해야 합니다.
+<br>
+<br>
+
+
+<!--- 마켓  --->
+
+> ### **크롬 스토어 바로가기**
+
+<br>
+
+<a href="https://chrome.google.com/webstore/detail/nklcbhub/hhpoinniefcngfbkiepakgelppjoambe">
+  <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/bookmark.png"/>
+</a>
 
 <br>
 
 
-> **1. 크롬 > 확장앱 관리자 > 압축해제 된 확장앱 설치**
+<!--- 소개 --->
 
-<br>
+# **사용 방법 (Usage)**
 
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/install.JPG" width="100%"/> &nbsp;&nbsp;
-
-> **2. 프로젝트 폴더 선택**
-
-<br>
-
-<img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/selectfolder.png" width="100%"/> &nbsp;&nbsp;
-
-
-> **3. 팝업 아이콘 클릭**
+> **1. 팝업 아이콘 클릭**
 
 <br>
 
 <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/auth.png" width="100%"/> &nbsp;&nbsp;
 
-> **4. Authenticate 클릭**
+> **2. Authenticate 클릭**
 
 Authenticate를 클릭하여 Github와 연동한 후 백준 문제를 업로드할 Repository를 지정합니다.
 
@@ -55,7 +62,7 @@ Authenticate를 클릭하여 Github와 연동한 후 백준 문제를 업로드�
 
 <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linkrepo.png" width="100%"/> &nbsp;&nbsp;
 
-> **5. [Baekjoon](www.acmicpc.net)으로 이동 후 새로고침**
+> **3. [Baekjoon](www.acmicpc.net)으로 이동 후 새로고침**
 
 아래와 같은 화면이 나왔다면 Repository 연동이 완료된 상태입니다.
 
@@ -64,7 +71,7 @@ Baekjoon 사이트로 이동하여 새로고침을 한 번 눌러주면 Reposito
 <img src="https://raw.githubusercontent.com/Donghyeon0915/DataRepository/master/BaekjoonHub/linked.png" width="100%"/> &nbsp;&nbsp;
 
 
-> **6. 업로드할 폴더 지정**
+> **4. 업로드할 폴더 지정**
 
 Repository를 연동하고 채점 현황 페이지에 접속하게 되면 자신이 맞춘 문제에 한하여 Upload 버튼이 표시됩니다.
 
