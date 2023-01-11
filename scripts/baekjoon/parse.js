@@ -74,7 +74,7 @@ function makeDetailMessageAndReadme(problem_info) {
     `# ${problem_tier_img} [${problem_title}](https://www.acmicpc.net/problem/${problemId}) \n\n` +
     `| 제출 번호 | 닉네임 | 채점 결과 | 메모리 | 시간 | 언어 | 코드 길이 |\n` +
     `|---|---|---|---|---|---|---|\n` +
-    `|${submitNo}|${user}|${result.replace('Github Upload', '')}|${memory}KB|${time}ms|${lang}|${byte}B|\n\n`+
+    `|${submitNo}|${user}|${result.replace('Upload', '')}|${memory}KB|${time}ms|${lang}|${byte}B|\n\n`+
     `## 문제\n` + 
     `${problem_description}\n\n` +
     `## 입력\n` + 
