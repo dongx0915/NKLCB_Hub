@@ -1,7 +1,7 @@
 {
     "name": "NKLCBHub",
     "description": "네카라쿠배 허브",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 3,
     "permissions": [
         "tabs",
