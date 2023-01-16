@@ -1,4 +1,6 @@
 
+let bojData = null
+
 /**
  * 백준 페이지에 디렉토리 선택 Modal을 추가하는 함수
  */
@@ -21,17 +23,36 @@ function addModal(){
         <div id="tree"></div>
 
         <br>
-        <p id="caption">*디렉토리는 최초 1회만 갱신됩니다.<br>디렉토리 갱신을 원하는 경우 <a href="javascript:void(0);">여기</a>를 눌러주세요</p>
+        <p id="caption">*디렉토리는 최초 1회만 갱신됩니다.<br>디렉토리 갱신을 원하는 경우 <a href="javascript:void(0);" onclick="alert('해당 기능은 준비중입니다. 갱신을 원하는 경우 리포지토리를 재연결 해주세요.');">여기</a>를 눌러주세요</p>
 
         <button id = "select-directory" class="btn btn-primary btn-sm form-control">선택</button>
         <button class="modal-close btn btn-default btn-sm form-control" style="margin-top: 10px">닫기</button>
     </div>`;
 
+    let selectBtn = document.querySelector('#select-directory');
+    selectBtn.addEventListener("click", function(){
+        if(!bojData){
+            alert('오류가 발생하였습니다. 새로고침 후 다시 시도해주세요.');
+            return;
+        } 
+
+        // 로딩 CSS 표시
+        const elem = document.getElementById('BaekjoonHub_progress_elem');
+        elem.className = 'BaekjoonHub_progress';
+        
+        let selectDir = document.querySelector('#select-dir').textContent;
+        if(selectDir == '') bojData.directory = bojData.dirName;
+        else bojData.directory = selectDir + '/' + bojData.dirName;
+
+        uploadOneSolveProblemOnGit(bojData, null);
+    });
+
     let modalclose = document.querySelector('.modal-close');
     modalclose.addEventListener("click", popClose)
 }
 
-async function popOpen(bojData) {
+async function popOpen(data) {
+    bojData = data
     const elem = document.getElementById('BaekjoonHub_progress_elem');
     elem.className = ''; // 기존 완료 아이콘 CSS 없애기
 
@@ -46,27 +67,10 @@ async function popOpen(bojData) {
 
     json = JSON.parse(json);
 
-
     $('#tree').bstreeview({ data: JSON.stringify(json)});
 
     modalBg.style = "display: block";
     modalPop.style = "display: block";
-
-    let selectBtn = document.querySelector('#select-directory');
-    selectBtn.addEventListener("click", function(){
-        // 로딩 CSS 표시
-        const elem = document.getElementById('BaekjoonHub_progress_elem');
-        elem.className = 'BaekjoonHub_progress';
-        
-        let selectDir = document.querySelector('#select-dir').textContent;
-        if(selectDir == '') bojData.directory = bojData.dirName;
-        else bojData.directory = selectDir + '/' + bojData.dirName;
-
-
-        //bojData.directory = document.querySelector('#select-dir').textContent + '/' + bojData.dirName;
-        uploadOneSolveProblemOnGit(bojData, null);
-    });
-
 }
 
 function popClose() {
