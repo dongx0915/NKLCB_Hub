@@ -1,6 +1,6 @@
 ---
-name: "\U0001F48E [ Feature ] \U0001F48E"
-about: 새로운 Feature(기능)에 대해 기록합니다.
+name: "\U0001F41E [ Bug report ]\U0001F41E"
+about: 프로젝트 개발 중 발생한 버그에 대해 기록합니다.
 title: ''
 labels: ''
 assignees: ''
