@@ -43,8 +43,6 @@ function convertDirectoryToMap(map, path) {
  * JSON으로 저장하는 함수
  */
 async function saveRepositoryDirectory(hook, token) {
-    // const token = await getToken(); // 토큰 가져오기
-    // const hook  = await getHook();  // 리포지토리 경로 가져오기
     if (isNull(token) || isNull(hook)) {
         console.error('token or hook is null', token, hook);
         return;
