@@ -27,7 +27,7 @@ async function fetchSubmitCodeById(submissionId) {
  * SolvedAC API를 이용하여 문제 번호로 문제 정보를 가져오는 함수
  */
 async function fetchSolvedACById(problemId) {
-    return fetch(`${baseUrl}/https://solved.ac/api/v3/problem/show?problemId=${problemId.trim()}`, { method: 'GET' })
+    return fetch(`${baseUrl}https://solved.ac/api/v3/problem/show?problemId=${problemId.trim()}`, { method: 'GET' })
         .then((res) => res.json())
 }
 
