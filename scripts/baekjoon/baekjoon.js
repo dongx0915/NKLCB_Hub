@@ -57,7 +57,7 @@ function addUploadBtnToResult(){
                 table_data,
                 await fetchProblemDescriptionById(table_data.problemNo),
                 await findSubmissionCode(table_data.submitNo),
-                await fetchSolvedACById(table_data.problemNo)
+                // await fetchSolvedACById(table_data.problemNo)
             );
             
             console.log(problem_info);
