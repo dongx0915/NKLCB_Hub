@@ -6,6 +6,7 @@ function getProblemInfo(td) {
         submitNo: td[0].textContent,
         user: td[1].textContent,
         problemNo: td[2].textContent,
+        level: td[2].querySelector('img')?.src.split('r/')[1].replace('.svg', ''),
         result: td[3].textContent,
         memory: td[4].textContent,
         time: td[5].textContent,
@@ -32,6 +33,7 @@ function parseProblemDescription(doc = document) {
     const problem_description = unescapeHtml(doc.getElementById('problem_description').innerHTML.trim());
     const problem_input = unescapeHtml(doc.getElementById('problem_input')?.innerHTML.trim?.());   // eslint-disable-line
     const problem_output = unescapeHtml(doc.getElementById('problem_output')?.innerHTML.trim?.()); // eslint-disable-line
+    
 
     if (problemId && problem_description) {
         // if (debug) console.log(`문제번호 ${problemId}의 내용을 저장합니다.`);
@@ -44,6 +46,9 @@ function parseProblemDescription(doc = document) {
 
 /**
  * Readme를 생성하는 함수
+ * SolvedAC API로는 level만 가져옴
+ * SolvedAC API가 허용되기 전까지는 level은 html에서 파싱하도록 변경
+ * SolvedAC API가 풀릴 경우를 대비해서 매개변수들은 현 상태 유지
  */
 function makeDetailMessageAndReadme(problem_info) {
     const { 
@@ -64,11 +69,13 @@ function makeDetailMessageAndReadme(problem_info) {
         problem_output,      /* 문제 출력 */
     } = problem_info;
 
+    const problem_tier_img = (level !== null && level !== undefined) ? `<img width=\"20px\"  src=\"https://d2gd6pc034wcta.cloudfront.net/tier/${level}.svg\" class=\"solvedac-tier\">` : '';
+    const bj_tier = (level !== null && level !== undefined) ? bj_level[level] : '';
+
     const directory = `baekjoon/#${problemId} ${problem_title}`;
     const dirName = `#${problemId} ${problem_title}`;
-    const message = `[${bj_level[level]} ${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -NKLCBHub`;
+    const message = `[${bj_tier+' '}${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -NKLCBHub`;
     const fileName = `${convertSingleCharToDoubleChar(problem_title)}.${languages[lang]}`;
-    const problem_tier_img = `<img width=\"20px\"  src=\"https://d2gd6pc034wcta.cloudfront.net/tier/${level}.svg\" class=\"solvedac-tier\">`;
 
     const readme = 
     `# ${problem_tier_img} [${problem_title}](https://www.acmicpc.net/problem/${problemId}) \n\n` +
