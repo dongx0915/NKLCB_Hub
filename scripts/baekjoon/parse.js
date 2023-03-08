@@ -70,11 +70,11 @@ function makeDetailMessageAndReadme(problem_info) {
     } = problem_info;
 
     const problem_tier_img = (level !== null && level !== undefined) ? `<img width=\"20px\"  src=\"https://d2gd6pc034wcta.cloudfront.net/tier/${level}.svg\" class=\"solvedac-tier\">` : '';
-    const bj_tier = (level !== null && level !== undefined) ? bj_level[level] : '';
+    const bj_tier = (level !== null && level !== undefined) ? bj_level[level]+' ' : '';
 
     const directory = `baekjoon/#${problemId} ${problem_title}`;
     const dirName = `#${problemId} ${problem_title}`;
-    const message = `[${bj_tier+' '}${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -NKLCBHub`;
+    const message = `[${bj_tier}${problemId}] Title: ${problem_title}, Time: ${time} ms, Memory: ${memory} KB -NKLCBHub`;
     const fileName = `${convertSingleCharToDoubleChar(problem_title)}.${languages[lang]}`;
 
     const readme = 
