@@ -1,7 +1,7 @@
 # NKLCB Hub
 
 
-![Release Version](https://img.shields.io/badge/release-0.0.4-yellow?style=flat-square)
+![Release Version](https://img.shields.io/badge/release-0.0.7-yellow?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-Chrome%20Extension-blue?style=flat-square)
 ![Last Commit](https://img.shields.io/github/last-commit/Donghyeon0915/NKLCB_Hub?style=flat-square)
 
