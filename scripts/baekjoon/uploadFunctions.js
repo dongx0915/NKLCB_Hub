@@ -13,6 +13,10 @@ async function uploadOneSolveProblemOnGit(bojData, cb) {
     const hook = await getHook();
     if (isNull(token) || isNull(hook)) {
         console.error('token or hook is null', token, hook);
+
+        const elem = document.getElementById('BaekjoonHub_progress_elem');
+        elem.className = 'markuploadfailed';
+        alert('Github 인증 토큰이 만료되었습니다. 재인증 후 다시 시도해주세요.');
         return;
     }
     return upload(token, hook, bojData.code, bojData.readme, bojData.directory, bojData.fileName, bojData.message, cb);
